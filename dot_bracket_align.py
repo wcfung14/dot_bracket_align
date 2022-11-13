@@ -1,5 +1,4 @@
 import re
-import pandas as pd
 
 def dot_bracket_align(mirna, mirna_dot_bracket):
     top_strand = re.sub("\).*$", "", mirna_dot_bracket)
@@ -77,12 +76,12 @@ def dot_bracket_align(mirna, mirna_dot_bracket):
     # [bottom_nt.append(mirna[::-1][c]) if i in (".", "(") else bottom_nt.append("-") for c, i in enumerate(bottom_align) ]
     print("top_nt:\t\t" + "".join(top_nt)); print("consensus:\t" + consensus); print("bottom_nt:\t" + "".join(bottom_nt))
 
-    # top_nt_upper = [v.upper() if consensus[k] == "|" else v for k, v in enumerate(top_nt)]
-    # bottom_nt_upper = [v.upper() if consensus[k] == "|" else v for k, v in enumerate(bottom_nt)]
+    top_nt_upper = [v.upper() if consensus[k] == "|" else v for k, v in enumerate(top_nt)]
+    bottom_nt_upper = [v.upper() if consensus[k] == "|" else v for k, v in enumerate(bottom_nt)]
 
-    # print("top_nt_upper:\t\t" + "".join(top_nt_upper))
+    print("top_nt_upper:\t\t" + "".join(top_nt_upper))
     print("consensus:\t\t" + consensus)
-    # print("bottom_nt_upper:\t" + "".join(bottom_nt_upper))
+    print("bottom_nt_upper:\t" + "".join(bottom_nt_upper))
 
 
 if __name__ == "__main__":
